@@ -1,0 +1,151 @@
+/* best solution practise to start from ground zero, since there is
+margins & padding that is auto set on page */
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+.flex-container {		/* parent container for the flex box */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+	height: auto;
+	width: auto;
+}
+
+.flex-item:nth-child() {
+    order: 0;
+    flex: 0 1 25%;
+    align-self: flex-start;
+}
+	
+article {
+	display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+}
+
+header {
+	background-color: royalblue;
+	color: white;
+	
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	
+	text-align: center;
+	padding: 25px;
+}
+
+nav {
+	position: fixed;
+	top: 87px;
+	width: 100%;
+	
+	background: black;
+	color: royalblue;
+	text-align: center;
+	padding: 10px 0px 10px 0px;
+}
+
+
+nav li {
+	display: inline;
+	margin: auto;
+	padding: 30px;
+}
+
+nav li > a {		/* '>' is to direct it to the 'a' = anchor, don't need to use '>' but it's best practise */
+	text-decoration:none;
+	color: white;
+	font-size: 20px;
+}
+
+ul.topnav li a:hover {		/* I do not need 'ul' or '.topnav' together or indidually can be taken out */
+	transition: 0.9s;	/* slow fade into highlight when hovered over */
+	background-color: purple;
+	border: 5px green solid
+}
+
+figure{
+	margin: 5px;
+}
+
+section {
+	position: relative;
+	top: 165px;
+	color: black;
+	border: 2px dashed;
+	margin: 25px 25px
+}
+
+figure {				/* have each item inline but content within behave like block, center the text */
+	position: relative;
+	display: inline-block;
+	text-align: center;
+}
+
+footer {				/* fix the footer to the bottom of the screen with a width full extended according to screen size */
+	background-color: royalblue;
+	color: white;
+	text-align: center;
+	padding: 25px;
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+}
+
+/* when the screen is more then 770px wide display the regular nav bar menu */
+@media screen and (min-width:770px) {		/* at the minimum reach of 770px do the following */
+	.icon {
+		display: none;		/* not to display the menu icon at 770px */
+	}
+}
+
+/* when the screen is less than 770 pixels wide, hide all list items, except for the first one (Menu Icon). Show the list item that contains the link to open and close the topnav (li.icon)  */
+@media screen and (max-width:770px) {		/* at the maximum reach of 770px do the following, collapses menu at width of 770px and less */
+	ul.topnav li:not(:first-child) {display: none;}		/* shows first item on list, which is the menu icon */
+	ul.topnav li.icon {		/* show menu icon to open topnav bar */
+		float: center;		/* centers the icon(s) when menu is collapse */
+		display: inline-block;
+		padding: 5px;
+	}
+}
+
+/* the "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens */
+@media screen and (max-width:770px) {		/* collapse menu is responsive up to width of 770px */
+	ul.topnav.responsive {position: relative;}		/* make the new drop down menu relative to the position of the header */
+	ul.topnav.responsive li.icon {
+		position: relative;			/* make the "menu icon" stay on the top of the link list after opening drop down menu */
+		right: 0;			/* use to place object relative to the contect or abolute to the page */
+		top: 0;
+	}
+	
+	ul.topnav.responsive li {	/* when list is open and responsive */
+		float: none;		/* decides where the mean will align to the screen when menu is open from collapse */
+		display: block;		/* display menu links as block so that the whole row of is respnosive */
+		padding: 5px;		/* shorten distance between each menu item when collapse */
+	}
+	
+	ul.topnav.responsive li a {
+		display: block;		/* display the */
+		text-align: center;		/* center the text when the collapse menu opens as a drop-down menu */
+	}
+}
+
+
+
+
+
+
+
+/*  use this link below for flex displays and wrong content to fit every device
+take out the webkit extentions
+http://the-echoplex.net/flexyboxes/?fixed-height=on&display=flex&flex-direction=row&flex-wrap=wrap&justify-content=center&align-items=center&align-content=stretch&order%5B%5D=0&flex-grow%5B%5D=0&flex-shrink%5B%5D=1&flex-basis%5B%5D=25%25&align-self%5B%5D=stretch&order%5B%5D=0&flex-grow%5B%5D=0&flex-shrink%5B%5D=1&flex-basis%5B%5D=25%25&align-self%5B%5D=stretch&order%5B%5D=0&flex-grow%5B%5D=0&flex-shrink%5B%5D=1&flex-basis%5B%5D=25%25&align-self%5B%5D=stretch&order%5B%5D=0&flex-grow%5B%5D=0&flex-shrink%5B%5D=1&flex-basis%5B%5D=25%25&align-self%5B%5D=stretch&order%5B%5D=0&flex-grow%5B%5D=0&flex-shrink%5B%5D=1&flex-basis%5B%5D=25%25&align-self%5B%5D=stretch&order%5B%5D=0&flex-grow%5B%5D=0&flex-shrink%5B%5D=1&flex-basis%5B%5D=25%25&align-self%5B%5D=stretch
+ */
