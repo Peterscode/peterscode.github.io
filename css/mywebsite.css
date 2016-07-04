@@ -5,6 +5,33 @@ margins & padding that is auto set on page */
 	padding: 0px;
 }
 
+body {
+	bottom: 2000px;
+}
+
+span {
+	position: absolute;
+	padding-left:35px;
+	padding-right:25px;
+	top: 5px;		/* lower <span> tag with media icons down to align with nav bar */
+}
+
+#socialmedia img{
+	border: 5px silver inset;
+	height: 35px;
+	width: 35px;
+}
+
+#profilepic {
+	max-height: 50%;
+	min-height: 10%;	
+	height: 400px;
+	min-width: 10%;	
+	width: 400px;
+	display: relative;
+	float: left;
+}
+
 .flex-container {		/* parent container for the flex box */
     display: flex;
     flex-direction: row;
@@ -17,64 +44,55 @@ margins & padding that is auto set on page */
 }
 
 .flex-item:nth-child() {
-    order: 0;
-    flex: 0 1 25%;
-    align-self: flex-start;
-}
-	
-article {
-	display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: stretch;
-    align-items: center;
+	order: 0;
+	flex: 0 1 25%;
+	align-self: stretch;
 }
 
 header {
+	position: fixed;
 	background-color: royalblue;
 	color: white;
-	
-	position: fixed;
-	top: 0px;
-	width: 100%;
-	
+	font-family:"Arial Black", Gadget, sans-serif;
+	top: -15px;			/* title starts higher up on page */
+	width: 100%;		/* width stay 100% of the screen */
 	text-align: center;
 	padding: 25px;
+	font-size: 25px;
+
+		display: inline-block;
+	    flex: 0 1 25%;
 }
 
 nav {
 	position: fixed;
 	top: 87px;
 	width: 100%;
-	
 	background: black;
 	color: royalblue;
 	text-align: center;
-	padding: 10px 0px 10px 0px;
+	padding: 15px 0px 15px 0px;
 }
-
 
 nav li {
 	display: inline;
 	margin: auto;
 	padding: 30px;
+
 }
 
 nav li > a {		/* '>' is to direct it to the 'a' = anchor, don't need to use '>' but it's best practise */
 	text-decoration:none;
 	color: white;
 	font-size: 20px;
+	border: 3px silver outset;
+	padding: 3px;
 }
 
 ul.topnav li a:hover {		/* I do not need 'ul' or '.topnav' together or indidually can be taken out */
-	transition: 0.9s;	/* slow fade into highlight when hovered over */
+	transition: 0.5s;	/* slow fade into highlight when hovered over */
 	background-color: purple;
-	border: 5px green solid
-}
-
-figure{
-	margin: 5px;
+	border: 3px gold solid
 }
 
 section {
@@ -82,23 +100,64 @@ section {
 	top: 165px;
 	color: black;
 	border: 2px dashed;
-	margin: 25px 25px
+	margin: 25px 25px 150px 25px;
+		padding: 20px;		
 }
+
+/*article {
+	display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+	width: 500px;
+} */
 
 figure {				/* have each item inline but content within behave like block, center the text */
 	position: relative;
 	display: inline-block;
 	text-align: center;
+	margin: 5px;
 }
 
-footer {				/* fix the footer to the bottom of the screen with a width full extended according to screen size */
+figure img {
+	height: 100px;
+	width: 100px;
+}
+
+figure figcaption {
+	display: table-cell;
+    justify-content: center;
+}
+
+ a img:hover {		/* this is for the images that has a link connected to them to highlight when hover over*/
+	transition: 0.3s;	/* slow fade into highlight when hovered over */
+	background-color: yellow;
+	border: none;
+}
+
+footer{
+	display: flex;
+	flex-flow: row wrap;
 	background-color: royalblue;
 	color: white;
-	text-align: center;
-	padding: 25px;
 	position: fixed;
 	bottom: 0px;
-	width: 100%;
+	width:100%;
+}
+
+footer p {				/* fix the footer to the bottom of the screen with a width full extended according to screen size */
+	flex: 1 1 100%;
+	text-align: center;
+	padding: 25px;
+}
+
+
+@media screen and (max-width:1300px) {
+	#socialmedia {
+		display: none;
+	}
 }
 
 /* when the screen is more then 770px wide display the regular nav bar menu */
@@ -110,11 +169,13 @@ footer {				/* fix the footer to the bottom of the screen with a width full exte
 
 /* when the screen is less than 770 pixels wide, hide all list items, except for the first one (Menu Icon). Show the list item that contains the link to open and close the topnav (li.icon)  */
 @media screen and (max-width:770px) {		/* at the maximum reach of 770px do the following, collapses menu at width of 770px and less */
-	ul.topnav li:not(:first-child) {display: none;}		/* shows first item on list, which is the menu icon */
+	ul.topnav li:not(:last-child)
+		{display: none;}		/* do not show list on menu */
 	ul.topnav li.icon {		/* show menu icon to open topnav bar */
 		float: center;		/* centers the icon(s) when menu is collapse */
 		display: inline-block;
 		padding: 5px;
+		height: 25px; /*height of nav bar when it is a menu icon*/
 	}
 }
 
@@ -127,25 +188,18 @@ footer {				/* fix the footer to the bottom of the screen with a width full exte
 		top: 0;
 	}
 	
-	ul.topnav.responsive li {	/* when list is open and responsive */
-		float: none;		/* decides where the mean will align to the screen when menu is open from collapse */
+	ul.topnav.responsive li {	/* when list is clicked open and responsive */
+		float: none;		/* decides where the menu will align to the screen when menu is open from collapse */
 		display: block;		/* display menu links as block so that the whole row of is respnosive */
 		padding: 5px;		/* shorten distance between each menu item when collapse */
 	}
 	
 	ul.topnav.responsive li a {
-		display: block;		/* display the */
+		display: inline;		/* display the */
+		border: none;		/* take boreder off links from original expanded menu */
 		text-align: center;		/* center the text when the collapse menu opens as a drop-down menu */
 	}
 }
 
 
 
-
-
-
-
-/*  use this link below for flex displays and wrong content to fit every device
-take out the webkit extentions
-http://the-echoplex.net/flexyboxes/?fixed-height=on&display=flex&flex-direction=row&flex-wrap=wrap&justify-content=center&align-items=center&align-content=stretch&order%5B%5D=0&flex-grow%5B%5D=0&flex-shrink%5B%5D=1&flex-basis%5B%5D=25%25&align-self%5B%5D=stretch&order%5B%5D=0&flex-grow%5B%5D=0&flex-shrink%5B%5D=1&flex-basis%5B%5D=25%25&align-self%5B%5D=stretch&order%5B%5D=0&flex-grow%5B%5D=0&flex-shrink%5B%5D=1&flex-basis%5B%5D=25%25&align-self%5B%5D=stretch&order%5B%5D=0&flex-grow%5B%5D=0&flex-shrink%5B%5D=1&flex-basis%5B%5D=25%25&align-self%5B%5D=stretch&order%5B%5D=0&flex-grow%5B%5D=0&flex-shrink%5B%5D=1&flex-basis%5B%5D=25%25&align-self%5B%5D=stretch&order%5B%5D=0&flex-grow%5B%5D=0&flex-shrink%5B%5D=1&flex-basis%5B%5D=25%25&align-self%5B%5D=stretch
- */
