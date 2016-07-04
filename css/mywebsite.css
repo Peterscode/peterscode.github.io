@@ -6,30 +6,75 @@ margins & padding that is auto set on page */
 }
 
 body {
-	bottom: 2000px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 
-span {
-	position: absolute;
+#body {			/* shape body of actually content under header, footer and nav bar */
+    margin-left: auto;
+	margin-right: auto;
+	max-width: 1200px;			/* maximun width body will go, allowing it to still strink as "flexbox" */
+}
+
+#contact ul li {
+	position: relative;
+	display: block;
+	float: right;
+}
+
+span {			/* used to position social media nav bar without overlapping */
+	position: absolute;			/* float in position of document right of nav bar */
 	padding-left:35px;
 	padding-right:25px;
 	top: 5px;		/* lower <span> tag with media icons down to align with nav bar */
 }
 
-#socialmedia img{
+#socialmedia img{		/* controls social meida icons */
 	border: 5px silver inset;
 	height: 35px;
 	width: 35px;
 }
 
-#profilepic {
+#profilepic {		/* contorls profile pic */
 	max-height: 50%;
 	min-height: 10%;	
 	height: 400px;
 	min-width: 10%;	
 	width: 400px;
 	display: relative;
-	float: left;
+	box-shadow: 10px 10px 5px #888888;
+}
+
+h1 {
+	text-shadow: 2px 2px black;
+}
+
+h2 {
+	text-shadow: 2px 2px white;
+	text-indent: 50px;
+	text-align: right;
+	 padding: 10px;
+}
+
+h3 {
+	text-shadow: 2px 2px white;
+	padding: 10px;
+	float:right;
+}
+
+blockquote {		/* quote underneath profile pic */
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 40px;
+    margin-right: 40px;
+	width: 1000px;
+	padding: 5px;
+	border: outset;
+}
+
+b {				/* move name of quote to the right */
+	float:right;
 }
 
 .flex-container {		/* parent container for the flex box */
@@ -59,9 +104,6 @@ header {
 	text-align: center;
 	padding: 25px;
 	font-size: 25px;
-
-		display: inline-block;
-	    flex: 0 1 25%;
 }
 
 nav {
@@ -77,8 +119,7 @@ nav {
 nav li {
 	display: inline;
 	margin: auto;
-	padding: 30px;
-
+	padding: 30px;			/* space between each link on nav bar */
 }
 
 nav li > a {		/* '>' is to direct it to the 'a' = anchor, don't need to use '>' but it's best practise */
@@ -91,17 +132,19 @@ nav li > a {		/* '>' is to direct it to the 'a' = anchor, don't need to use '>' 
 
 ul.topnav li a:hover {		/* I do not need 'ul' or '.topnav' together or indidually can be taken out */
 	transition: 0.5s;	/* slow fade into highlight when hovered over */
-	background-color: purple;
+	background-color: white;
+	color: blue;
 	border: 3px gold solid
 }
 
 section {
 	position: relative;
-	top: 165px;
+	background-color: lightgrey;
+	top: 125px;
 	color: black;
-	border: 2px dashed;
-	margin: 25px 25px 150px 25px;
-		padding: 20px;		
+	border: 5px inset;
+	margin: 25px 25px 25px 25px;
+		padding: 20px;	
 }
 
 /*article {
@@ -127,14 +170,26 @@ figure img {
 }
 
 figure figcaption {
-	display: table-cell;
-    justify-content: center;
+	display: table-cell;			/* keep objects in the same row even with "flex" display */
+
 }
 
  a img:hover {		/* this is for the images that has a link connected to them to highlight when hover over*/
 	transition: 0.3s;	/* slow fade into highlight when hovered over */
 	background-color: yellow;
 	border: none;
+}
+
+.arrows{
+	background-color: white;		/* cancel the "background-color" from section property */
+	padding-bottom: 5px;
+	text-align: center;
+	border: none;				/* cancel the "border" from section property */
+	
+	  position: relative;
+  background-color: rgba(0,0,0,0.5);
+ 
+  opacity: 1.6;
 }
 
 footer{
@@ -150,11 +205,12 @@ footer{
 footer p {				/* fix the footer to the bottom of the screen with a width full extended according to screen size */
 	flex: 1 1 100%;
 	text-align: center;
-	padding: 25px;
+	padding: 10px;
 }
 
+/* =================================== nav bar sections =================================== */
 
-@media screen and (max-width:1300px) {
+@media screen and (max-width:1350px) {
 	#socialmedia {
 		display: none;
 	}
@@ -200,6 +256,3 @@ footer p {				/* fix the footer to the bottom of the screen with a width full ex
 		text-align: center;		/* center the text when the collapse menu opens as a drop-down menu */
 	}
 }
-
-
-
