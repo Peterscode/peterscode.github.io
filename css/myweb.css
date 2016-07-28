@@ -1,0 +1,293 @@
+/* best solution practise to start from ground zero, since there is
+margins & padding that is auto set on page */
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+#fountain{
+	top:300px;
+	display:flex;
+	max-height: 100%;
+	mix-height: 25%;
+	height: auto;
+	max-width: 95%;	
+	mix-width: 200px;
+	width: 1200px;
+	display: relative;
+	margin: 25px 25px 25px 15px;
+
+	justify-content: center;
+}
+
+body {
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+	background-color:black;
+}
+
+#body {			/* shape body of actually content under header, footer and nav bar */
+    margin-left: auto;
+	margin-right: auto;
+	max-width: 1200px;			/* maximun width body will go, allowing it to still strink as "flexbox" */
+}
+
+#contact ul li {
+	position: relative;
+	display: block;
+	float: right;
+}
+
+span {			/* used to position social media nav bar without overlapping */
+	position: absolute;			/* float in position of document right of nav bar */
+	padding-left:35px;
+	padding-right:25px;
+	top: 5px;		/* lower <span> tag with media icons down to align with nav bar */
+}
+
+#socialmedia img{		/* controls social meida icons */
+	border: 5px silver inset;
+	height: 35px;
+	width: 35px;
+}
+
+#profilepic {		/* contorls profile pic */
+	max-height: 50%;
+	min-height: 50%;	
+	height: auto;
+	width: 400px;
+	min-width: 50%;	
+	display: relative;
+	box-shadow: 10px 10px 5px #888888;
+}
+
+h1 {
+	text-shadow: 2px 2px black;
+}
+
+h2 {
+	color: white;
+	text-shadow: 2px 2px black;
+	text-indent: 50px;
+	text-align: right;
+	 padding: 10px;
+}
+
+h3 {
+	text-shadow: 2px 2px white;
+	padding: 10px;
+	float:right;
+}
+
+blockquote {		/* quote underneath profile pic */
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 40px;
+    margin-right: 40px;
+	width: 1000px;
+	padding: 5px;
+	border: outset;
+}
+
+b {				/* move name of quote to the right */
+	float:right;
+}
+
+
+.flex-main {		/* parent container for the flex box */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+	height: auto;
+	width: auto;
+}
+
+.flex-container {		/* parent container for the flex box */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: flex-start;
+	height: auto;
+	width: auto;
+}
+
+.flex-item:nth-child() {
+	order: 0;
+	flex: 0 1 25%;
+	align-self: stretch;
+}
+
+header {
+	position: fixed;
+	background-color: black;
+	color: white;
+	font-family:"Arial Black", Gadget, sans-serif;
+	top: -15px;			/* title starts higher up on page */
+	width: 100%;		/* width stay 100% of the screen */
+	text-align: center;
+	padding: 25px;
+	font-size: 25px;
+}
+
+nav {
+	position: fixed;
+	top: 87px;
+	width: 100%;
+	background: black;
+	color: royalblue;
+	text-align: center;
+	padding: 15px 0px 15px 0px;
+}
+
+nav li {
+	display: inline;
+	margin: auto;
+	padding: 30px;			/* space between each link on nav bar */
+}
+
+nav li > a {		/* '>' is to direct it to the 'a' = anchor, don't need to use '>' but it's best practise */
+	text-decoration:none;
+	color: white;
+	font-size: 20px;
+	border: 3px silver outset;
+	padding: 3px;
+}
+
+ul.topnav li a:hover {		/* I do not need 'ul' or '.topnav' together or indidually can be taken out */
+	transition: 0.5s;	/* slow fade into highlight when hovered over */
+	background-color: white;
+	color: black;
+	border: 3px gold solid
+}
+
+section {
+	position: relative;
+	background-color: lightgrey;
+	top: 125px;
+	color: black;
+	border: 5px white inset;
+	margin: 25px 25px 25px 25px;
+		padding: 20px;	
+		min-width: 300px;
+}
+
+/*article {
+	display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: stretch;
+    align-items: center;
+	width: 500px;
+} */
+
+figure {				/* have each item inline but content within behave like block, center the text */
+	position: relative;
+	display: inline-block;
+	text-align: center;
+	margin: 10px;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+figure img {
+	height: 100px;
+	width: 100px;
+}
+
+figure figcaption {
+	display: table-cell;			/* keep objects in the same row even with "flex" display */
+}
+
+figure figcaption details p{
+	width: 100px;
+}
+
+ a img:hover {		/* this is for the images that has a link connected to them to highlight when hover over*/
+	transition: 0.3s;	/* slow fade into highlight when hovered over */
+	background-color: yellow;
+	border: none;
+}
+
+.arrows{
+	background-color: white;		/* cancel the "background-color" from section property */
+	padding-bottom: 10px;
+	text-align: right;
+	border: none;				/* cancel the "border" from section property */
+	
+	  position: relative;
+  background-color: rgba(0,0,0,0.0);	/*color code and tranparency*/
+ 
+  opacity: 1.0;		/*tranparency of the icon*/
+}
+
+footer{
+	display: flex;
+	flex-flow: row wrap;
+	background-color: royalblue;
+	color: white;
+	position: fixed;
+	bottom: 0px;
+	width:100%;
+}
+
+footer p {				/* fix the footer to the bottom of the screen with a width full extended according to screen size */
+	flex: 1 1 100%;
+	text-align: center;
+	padding: 5px;
+}
+
+/* =================================== nav bar sections =================================== */
+
+@media screen and (max-width:1360px) {
+	#socialmedia {
+		display: none;
+	}
+}
+
+/* when the screen is more then 825px wide display the regular nav bar menu */
+@media screen and (min-width:825px) {		/* at the minimum reach of 825px do the following */
+	.icon {
+		display: none;		/* not to display the menu icon at 825px */
+	}
+}
+
+/* when the screen is less than 825 pixels wide, hide all list items, except for the first one (Menu Icon). Show the list item that contains the link to open and close the topnav (li.icon)  */
+@media screen and (max-width:825px) {		/* at the maximum reach of 825px do the following, collapses menu at width of 825px and less */
+	ul.topnav li:not(:last-child)
+		{display: none;}		/* do not show list on menu */
+	ul.topnav li.icon {		/* show menu icon to open topnav bar */
+		float: center;		/* centers the icon(s) when menu is collapse */
+		display: inline-block;
+		padding: 5px;
+		height: 25px; /*height of nav bar when it is a menu icon*/
+	}
+}
+
+/* the "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens */
+@media screen and (max-width:825px) {		/* collapse menu is responsive up to width of 825px */
+	ul.topnav.responsive {position: relative;}		/* make the new drop down menu relative to the position of the header */
+	ul.topnav.responsive li.icon {
+		position: relative;			/* make the "menu icon" stay on the top of the link list after opening drop down menu */
+		right: 0;			/* use to place object relative to the contect or abolute to the page */
+		top: 0;
+	}
+	
+	ul.topnav.responsive li {	/* when list is clicked open and responsive */
+		float: none;		/* decides where the menu will align to the screen when menu is open from collapse */
+		display: block;		/* display menu links as block so that the whole row of is respnosive */
+		padding: 5px;		/* shorten distance between each menu item when collapse */
+	}
+	
+	ul.topnav.responsive li a {
+		display: inline;		/* display the */
+		border: none;		/* take boreder off links from original expanded menu */
+		text-align: center;		/* center the text when the collapse menu opens as a drop-down menu */
+	}
+}

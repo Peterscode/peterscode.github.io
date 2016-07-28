@@ -5,9 +5,23 @@ margins & padding that is auto set on page */
 	padding: 0px;
 }
 
+#fountain{
+	max-height: 100%;
+	/* min-height: 10%;	 */
+	height: auto;
+	max-width: 100%;	
+	/* min-width: 10%; */
+	width: auto;
+	display: relative;
+	align-items: center;
+	padding: 20px;
+	box-shadow: 10px 10px 5px #888888;
+}
+
 body {
     background-size: 100% 100%;
     background-repeat: no-repeat;
+	background-color:black;
 }
 
 #body {			/* shape body of actually content under header, footer and nav bar */
@@ -37,10 +51,10 @@ span {			/* used to position social media nav bar without overlapping */
 
 #profilepic {		/* contorls profile pic */
 	max-height: 50%;
-	min-height: 10%;	
-	height: 400px;
-	min-width: 10%;	
+	min-height: 50%;	
+	height: auto;
 	width: 400px;
+	min-width: 50%;	
 	display: relative;
 	box-shadow: 10px 10px 5px #888888;
 }
@@ -50,7 +64,8 @@ h1 {
 }
 
 h2 {
-	text-shadow: 2px 2px white;
+	color: white;
+	text-shadow: 2px 2px black;
 	text-indent: 50px;
 	text-align: right;
 	 padding: 10px;
@@ -108,7 +123,7 @@ b {				/* move name of quote to the right */
 
 header {
 	position: fixed;
-	background-color: royalblue;
+	background-color: black;
 	color: white;
 	font-family:"Arial Black", Gadget, sans-serif;
 	top: -15px;			/* title starts higher up on page */
@@ -145,7 +160,7 @@ nav li > a {		/* '>' is to direct it to the 'a' = anchor, don't need to use '>' 
 ul.topnav li a:hover {		/* I do not need 'ul' or '.topnav' together or indidually can be taken out */
 	transition: 0.5s;	/* slow fade into highlight when hovered over */
 	background-color: white;
-	color: blue;
+	color: black;
 	border: 3px gold solid
 }
 
@@ -154,10 +169,10 @@ section {
 	background-color: lightgrey;
 	top: 125px;
 	color: black;
-	border: 5px inset;
+	border: 5px white inset;
 	margin: 25px 25px 25px 25px;
 		padding: 20px;	
-		min-width: 200px;
+		min-width: 300px;
 }
 
 /*article {
@@ -200,14 +215,14 @@ figure figcaption details p{
 
 .arrows{
 	background-color: white;		/* cancel the "background-color" from section property */
-	padding-bottom: 5px;
-	text-align: center;
+	padding-bottom: 10px;
+	text-align: right;
 	border: none;				/* cancel the "border" from section property */
 	
 	  position: relative;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.0);	/*color code and tranparency*/
  
-  opacity: 1.6;
+  opacity: 1.0;		/*tranparency of the icon*/
 }
 
 footer{
@@ -223,7 +238,7 @@ footer{
 footer p {				/* fix the footer to the bottom of the screen with a width full extended according to screen size */
 	flex: 1 1 100%;
 	text-align: center;
-	padding: 10px;
+	padding: 5px;
 }
 
 /* =================================== nav bar sections =================================== */
