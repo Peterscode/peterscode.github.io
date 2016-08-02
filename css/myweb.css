@@ -11,11 +11,11 @@ margins & padding that is auto set on page */
 	max-height: 100%;
 	mix-height: 25%;
 	height: auto;
-	max-width: 95%;	
+	max-width: 100%;	
 	mix-width: 200px;
 	width: 1200px;
 	display: relative;
-	margin: 25px 25px 25px 15px;
+	margin: 25px 25px 25px 10px;
 
 	justify-content: center;
 }
@@ -55,7 +55,7 @@ span {			/* used to position social media nav bar without overlapping */
 	max-height: 50%;
 	min-height: 50%;	
 	height: auto;
-	width: 400px;
+	width: 200px;
 	min-width: 50%;	
 	display: relative;
 	box-shadow: 10px 10px 5px #888888;
